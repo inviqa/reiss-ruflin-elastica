@@ -157,7 +157,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
     {
         $data = $this->_response->getData();
 
-        return (int) ($data['hits']['total'] ?? 0);
+        return (int) ($data['hits']['total']['value'] ?? 0);
     }
 
     /**
@@ -221,7 +221,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      */
     public function count()
     {
-        return count($this->_results);
+        return \count($this->_results);
     }
 
     /**
@@ -231,7 +231,7 @@ class ResultSet implements \Iterator, \Countable, \ArrayAccess
      */
     public function countSuggests()
     {
-        return sizeof($this->getSuggests());
+        return \count($this->getSuggests());
     }
 
     /**
