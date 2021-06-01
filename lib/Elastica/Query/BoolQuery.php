@@ -24,6 +24,7 @@ class BoolQuery extends AbstractQuery
     {
         //Modified to support ES 7.9. REISS-5795. Originally it adds an extra array layer which causes problems.
         $this->_params['should'] = $args;
+        return $this;
     }
 
     /**
